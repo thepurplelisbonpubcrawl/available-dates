@@ -4,18 +4,17 @@ on:
   pull_request:
     paths:
       - '**/*.json'
-      - '*.json'
 
 jobs:
-  validate:
+  validate-json:
+    name: Validate JSON ✅ # THIS name must exist
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-
-    - name: Validate JSON files
-      run: |
-        for file in $(find . -name "*.json"); do
-          echo "Validating $file"
-          cat "$file" | jq empty
-        done
+      - uses: actions/checkout@v4
+      - name: Validate all JSON files
+        run: |
+          for f in $(find . -name '*.json'); do
+            echo "Checking $f"
+            jq empty "$f"
+          done
