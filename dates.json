@@ -1,0 +1,5 @@
+{
+  "defaultDays": ["Tue", "Thu", "Fri", "Sat"],
+  "includeExtra": ["12-31-2025"],
+  "exclude": ["12-23-2025"]
+}
